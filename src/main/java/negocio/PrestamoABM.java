@@ -85,6 +85,7 @@ public class PrestamoABM {
 		
 		cuotas.add(c);
 		
+		// FIXME REVISAR_CUOTAS
 		for(int i=2; i < prestamo.getCantCuotas();i++) {
 			
 		}
