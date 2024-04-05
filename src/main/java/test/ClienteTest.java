@@ -1,6 +1,9 @@
 package test;
 
 import datos.Cliente;
+
+import java.lang.String;
+
 import datos.Cuota;
 import datos.Prestamo;
 import negocio.ClienteABM;

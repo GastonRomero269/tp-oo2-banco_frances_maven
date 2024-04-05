@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="datos.Cliente" table="cliente">
 		<id name="idCliente" column="idCliente">
 			<generator class="identity"></generator>
 		</id>
-		<property name="apellido" column="apellido" type="string"></property>
+		<property name="apellido" column="apellido" type="java.lang.String"></property>
 		<property name="nombre" column="nombre" type="string"></property>
 		<property name="dni" column="dni" type="long"></property>
 		<property name="fechaDeNacimiento" column="fechaDeNacimiento" type="LocalDate"></property>

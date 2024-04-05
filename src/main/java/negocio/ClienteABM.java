@@ -17,7 +17,7 @@ public class ClienteABM {
 		return instance;
 	}
 	
-	public int agregar(Cliente objeto) {
+	public long agregar(Cliente objeto) {
 		return ClienteDAO.getInstance().agregar(objeto);
 	}
 	

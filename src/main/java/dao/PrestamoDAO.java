@@ -35,11 +35,11 @@ public class PrestamoDAO {
 	}
 	
 	@SuppressWarnings("deprecation")
-	public int agregar(Prestamo objeto) {
-		int id = -1;
+	public long agregar(Prestamo objeto) {
+		long id = -1;
 		try {
 			this.iniciaOperacion();
-			id = Integer.parseInt(session.save(objeto).toString());
+			id = (long) session.save(objeto);
 			transaction.commit();
 		} catch (HibernateException he) {
 			this.manejaException(he);
@@ -83,7 +83,6 @@ public class PrestamoDAO {
 		try {
 			this.iniciaOperacion();
 			objeto = session.get(Prestamo.class, id);
-			transaction.commit();
 		} catch (HibernateException he) {
 			this.manejaException(he);
 			throw he;
@@ -99,10 +98,8 @@ public class PrestamoDAO {
 			this.iniciaOperacion();
 			objeto = session.get(Prestamo.class, id);
 			Hibernate.initialize(objeto.getCuotas());
-			transaction.commit();
 		} catch (HibernateException he) {
 			this.manejaException(he);
-			throw he;
 		} finally {
 			session.close();
 		}
@@ -118,7 +115,6 @@ public class PrestamoDAO {
 			@SuppressWarnings("deprecation")
 			Query<Prestamo> query = session.createQuery(hql);
 			objeto = query.getResultList();
-			transaction.commit();
 		} catch (HibernateException he) {
 			this.manejaException(he);
 			throw he;

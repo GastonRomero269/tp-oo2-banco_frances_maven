@@ -1,6 +1,7 @@
 package datos;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Cuota {
 	private long idCuota;
@@ -22,8 +23,7 @@ public class Cuota {
 	}
 
 	public Cuota(LocalDate fechaVencimiento, double saldoPendiente, double amortizacion, double interesesCuota,
-			double cuota, double deuda, boolean cancelada, LocalDate fechaDePago, double punitorios,
-			Prestamo prestamo) {
+			double cuota, double deuda, boolean cancelada, LocalDate fechaDePago, double punitorios) {
 		super();
 		this.fechaVencimiento = fechaVencimiento;
 		this.saldoPendiente = saldoPendiente;
@@ -34,7 +34,6 @@ public class Cuota {
 		this.cancelada = cancelada;
 		this.fechaDePago = fechaDePago;
 		this.punitorios = punitorios;
-		this.prestamo = prestamo;
 	}
 
 	public Cuota(int nroCuota, LocalDate fechaVencimiento, double saldoPendiente, double amortizacion,
@@ -151,11 +150,38 @@ public class Cuota {
 	}
 
 	@Override
+	public int hashCode() {
+		return Objects.hash(amortizacion, cancelada, cuota, deuda, fechaDePago, fechaVencimiento, idCuota,
+				interesesCuota, nroCuota, prestamo, punitorios, saldoPendiente);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cuota other = (Cuota) obj;
+		return Double.doubleToLongBits(amortizacion) == Double.doubleToLongBits(other.amortizacion)
+				&& cancelada == other.cancelada
+				&& Double.doubleToLongBits(cuota) == Double.doubleToLongBits(other.cuota)
+				&& Double.doubleToLongBits(deuda) == Double.doubleToLongBits(other.deuda)
+				&& Objects.equals(fechaDePago, other.fechaDePago)
+				&& Objects.equals(fechaVencimiento, other.fechaVencimiento) && idCuota == other.idCuota
+				&& Double.doubleToLongBits(interesesCuota) == Double.doubleToLongBits(other.interesesCuota)
+				&& nroCuota == other.nroCuota && Objects.equals(prestamo, other.prestamo)
+				&& Double.doubleToLongBits(punitorios) == Double.doubleToLongBits(other.punitorios)
+				&& Double.doubleToLongBits(saldoPendiente) == Double.doubleToLongBits(other.saldoPendiente);
+	}
+
+	@Override
 	public String toString() {
 		return "Cuota [idCuota=" + idCuota + ", nroCuota=" + nroCuota + ", fechaVencimiento=" + fechaVencimiento
 				+ ", saldoPendiente=" + saldoPendiente + ", amortizacion=" + amortizacion + ", interesesCuota="
 				+ interesesCuota + ", cuota=" + cuota + ", deuda=" + deuda + ", cancelada=" + cancelada
-				+ ", fechaDePago=" + fechaDePago + ", punitorios=" + punitorios + "]";
+				+ ", fechaDePago=" + fechaDePago + ", punitorios=" + punitorios + " ] \n";
 	}
 
 }
