@@ -36,11 +36,11 @@ public class ClienteDAO {
 	}
 	
 	@SuppressWarnings("deprecation")
-	public int agregar(Cliente objeto) {
-		int id = -1;
+	public long agregar(Cliente objeto) {
+		long id = -1;
 		try {
-			this.iniciaOperacion();
-			id = Integer.parseInt(session.save(objeto).toString());
+			iniciaOperacion();
+			id = (long) session.save(objeto);
 			transaction.commit();
 		} catch (HibernateException he) {
 			this.manejaException(he);

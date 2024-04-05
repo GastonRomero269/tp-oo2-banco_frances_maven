@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="datos.Cuota" table="cuota">
 		<id name="idCuota" column="idCuota">
@@ -15,6 +15,6 @@
 		<property name="cancelada" column="cancelada" type="boolean"></property>
 		<property name="fechaDePago" column="fechaDePago" type="LocalDate"></property>
 		<property name="punitorios" column="punitorios" type="double"></property>
-		<many-to-one name="prestamo" column="idPrestamo" class="datos.Prestamo"></many-to-one>
+		<many-to-one name="prestamo" column="idPrestamo" class="datos.Prestamo"></many-to-one> 
 	</class>
 </hibernate-mapping>

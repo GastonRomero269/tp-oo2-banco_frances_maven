@@ -15,8 +15,8 @@ public class HibernateUtil {
 		try {
 			if (sessionFactory == null) {
 				StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
-				Metadata metaData = new MetadataSources(standardRegistry).getMetadataBuilder().build();
-				sessionFactory = metaData.getSessionFactoryBuilder().build();
+				Metadata metaData = new MetadataSources().buildMetadata(standardRegistry);
+				sessionFactory = metaData.buildSessionFactory();
 			}
 		} catch (HibernateException he) {
 			System.err.println("ERROR en la inicialización de la SessionFactory: " + he);

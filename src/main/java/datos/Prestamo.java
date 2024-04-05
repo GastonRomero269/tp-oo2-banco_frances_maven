@@ -19,7 +19,7 @@ public class Prestamo {
 	}
 
 	public Prestamo(LocalDate fecha, double monto, double intereses, int cantCuotas, Cliente cliente,
-			boolean cancelado) {
+			boolean cancelado, Set<Cuota> cuotas) {
 		super();
 		this.fecha = fecha;
 		this.monto = monto;
@@ -27,6 +27,7 @@ public class Prestamo {
 		this.cantCuotas = cantCuotas;
 		this.cliente = cliente;
 		this.cancelado = cancelado;
+		this.cuotas = cuotas;
 	}
 
 	public long getIdPrestamo() {

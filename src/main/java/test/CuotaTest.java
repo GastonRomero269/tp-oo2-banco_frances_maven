@@ -1,9 +1,10 @@
 package test;
 
-import java.util.List;
+import java.time.LocalDate;
 
 import datos.Cuota;
 import negocio.CuotaABM;
+import negocio.PrestamoABM;
 
 public class CuotaTest {
 	public static void main(String[] args) {
@@ -18,7 +19,7 @@ public class CuotaTest {
 		//Cuota cuota = CuotaABM.getInstance().traer(1L);
 		//CuotaABM.getInstance().eliminar(cuota);
 		
-		List<Cuota> cuotas = CuotaABM.getInstance().traer();
-		System.out.println(cuotas);
+		//List<Cuota> cuotas = CuotaABM.getInstance().traer();
+		//System.out.println(cuotas);
 	}
 }
